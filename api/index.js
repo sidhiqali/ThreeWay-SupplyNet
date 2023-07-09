@@ -45,6 +45,9 @@ app.use((err, req, res, next) => {
   res.status(errorStatus).send(errorMessage);
 });
 
+app.get('/', (req, res) => {
+  res.send('api running successfully');
+});
 
 io.on('connection', (socket) => {
   console.log('A user connected');
@@ -70,7 +73,6 @@ io.on('connection', (socket) => {
     console.log('A user disconnected');
   });
 });
-
 
 const port = process.env.PORT;
 const startServer = async () => {
