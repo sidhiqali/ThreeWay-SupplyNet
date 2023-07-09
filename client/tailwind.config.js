@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        hero: "url('./src/assets/bg-2.png')",
-        main: "url('./src/assets/main-bg.png')",
+        hero: "url('https://res.cloudinary.com/dxp8k3sze/image/upload/v1688914311/bg-2_dx06ns.png')",
+        main: "url('https://res.cloudinary.com/dxp8k3sze/image/upload/v1688914314/main-bg_g8awxu.png)",
       },
     },
   },
