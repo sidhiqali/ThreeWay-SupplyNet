@@ -56,7 +56,7 @@ const Message = () => {
   }, [data, user?._id]);
 
   useEffect(() => {
-    const socket = io('http://localhost:5000');
+    const socket = io('https://supplynet-server.onrender.com');
     setSocket(socket);
     return () => {
       socket.disconnect();
