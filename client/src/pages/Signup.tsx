@@ -7,7 +7,7 @@ import { userContext } from '../context/userContext';
 import { toast } from 'react-toastify';
 
 const Signup = () => {
-  const { user, setUser } = useContext(userContext);
+  const { setUser } = useContext(userContext);
   const navigate = useNavigate();
   const [newUser, setNewUser] = useState<User>({
     username: '',

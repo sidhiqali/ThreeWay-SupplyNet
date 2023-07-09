@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import moment from 'moment';
 import { userContext } from '../context/userContext';
 import newRequest from '../utils/newRequest';
@@ -10,7 +10,6 @@ import { IOrder } from '../utils/interface';
 const MessageSection = () => {
   const { user } = useContext(userContext);
   const [nameId, setNameId] = useState<string[]>([]);
-  const navigate = useNavigate();
 
   //fetch all conversations of user
   const { isLoading, error, data } = useQuery({
@@ -74,32 +73,31 @@ const MessageSection = () => {
               console.log(correspondingUser);
             }
             return (
-              <div
-                onClick={(e) => navigate(`/message/${c.id}`)}
-                className='cursor-pointer my-1 px-6 rounded-3xl bg-gray-950 bg-opacity-40  py-4 text-yellow-700 text-sm '
-              >
-                <div className='flex items-center justify-between'>
-                  <div className='flex items-center '>
-                    <img
-                      src={avatar}
-                      alt='image'
-                      className='w-10 h-10 rounded-full mx-3'
-                    />
-                    <div className='md:text-lg text-base  text-yellow-600'>
-                      {isLoadingUser ? (
-                        <Loader />
-                      ) : errorUser ? (
-                        'user not found'
-                      ) : (
-                        correspondingUser?.username
-                      )}
+              <Link to={`/message/${c.id}`}>
+                <div className='cursor-pointer my-1 px-6 rounded-3xl bg-gray-950 bg-opacity-40  py-4 text-yellow-700 text-sm '>
+                  <div className='flex items-center justify-between'>
+                    <div className='flex items-center '>
+                      <img
+                        src={avatar}
+                        alt='image'
+                        className='w-10 h-10 rounded-full mx-3'
+                      />
+                      <div className='md:text-lg text-base  text-yellow-600'>
+                        {isLoadingUser ? (
+                          <Loader />
+                        ) : errorUser ? (
+                          'user not found'
+                        ) : (
+                          correspondingUser?.username
+                        )}
+                      </div>
+                    </div>
+                    <div className='text-sm md:text-[12px]'>
+                      {moment(c.updatedAt).fromNow()}
                     </div>
                   </div>
-                  <div className='text-sm md:text-[12px]'>
-                    {moment(c.updatedAt).fromNow()}
-                  </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>

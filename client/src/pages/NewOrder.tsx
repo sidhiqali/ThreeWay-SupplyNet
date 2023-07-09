@@ -43,7 +43,6 @@ const NewOrder = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const selectedTransporterId = { ...newOrder, transporterId }; 
     mutation.mutate({ ...newOrder, transporterId });
     navigate('/');
     toast.success('Order created successfully');

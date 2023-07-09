@@ -1,9 +1,9 @@
-import React, { useContext, Fragment, useState, useEffect } from 'react';
+import { useContext, Fragment, useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { userContext } from '../context/userContext';
 import newRequest from '../utils/newRequest';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
-import { IOrder, User } from '../utils/interface';
+import { IOrder} from '../utils/interface';
 import Loader from '../utils/Loader';
 import { MdSearch } from 'react-icons/md';
 

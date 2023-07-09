@@ -1,4 +1,3 @@
-import React from 'react';
 import Manufacturer from './Manufacturer';
 import Transporter from './Transporter';
 import Header from '../components/Header';
